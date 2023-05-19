@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {  useEffect } from "react";
+import { NativeRouter } from "react-router-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+} from "react-native";
+import Constants from "expo-constants";
+import db, { initialize } from "./src/db";
+import { RecoilRoot } from "recoil";
+import Root from './src/Root'
 
 export default function App() {
+  useEffect(() => {
+    initialize(db);
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeRouter>
+      <RecoilRoot>
+        <SafeAreaView style={styles.container}>
+          <Root />
+        </SafeAreaView>
+      </RecoilRoot>
+    </NativeRouter>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#fff",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    paddingTop: Constants.statusBarHeight,
+  }
 });

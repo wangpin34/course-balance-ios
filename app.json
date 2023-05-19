@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cource-balance",
-    "slug": "cource-balance",
+    "name": "course balance",
+    "slug": "course-balance",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "774af933-2346-4961-8f8f-28fa1ec3e4a8"
+      }
+    },
+    "owner": "wangpin"
   }
 }
